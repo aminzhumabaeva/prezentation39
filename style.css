@@ -1,0 +1,820 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --ink: #172b35;
+    --accent: #b58a52;
+    --paper: #fffefa;
+    --soft: #f2f0e9;
+    --line: #dfddd5;
+    --muted: #64747a;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #dededb;
+    color: var(--ink);
+    font-family: 'Manrope', Arial, sans-serif;
+}
+
+.presentation {
+    padding: 25px 0;
+}
+
+.slide {
+    width: 297mm;
+    height: 210mm;
+    margin: 0 auto 25px;
+    padding: 14mm 17mm 13mm;
+    background: var(--paper);
+    position: relative;
+    overflow: hidden;
+    break-after: page;
+    page-break-after: always;
+    box-shadow: 0 8px 35px #00000012;
+}
+
+h1, h2, h3, p {
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 27pt;
+    line-height: 1.17;
+    letter-spacing: -.7px;
+    margin-bottom: 12px;
+}
+
+h3 {
+    font-size: 11.5pt;
+    line-height: 1.35;
+    margin-bottom: 6px;
+}
+
+p {
+    font-size: 9.5pt;
+    line-height: 1.6;
+    color: #4d5e63;
+    margin-bottom: 11px;
+}
+
+.heading {
+    margin-bottom: 19px;
+}
+
+.heading > span {
+    display: block;
+    color: #a07842;
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.heading > p {
+    margin-bottom: 0;
+}
+
+.number {
+    position: absolute;
+    right: 17mm;
+    bottom: 6mm;
+    font-size: 8pt;
+    letter-spacing: 1px;
+    color: #829094;
+}
+
+.number::before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 2px;
+    background: var(--accent);
+    margin: 0 9px 3px 0;
+}
+
+/* 01 — ТИТУЛЬНЫЙ ЛИСТ */
+
+.cover {
+    padding-top: 12mm;
+    background: #fbfaf5;
+}
+
+.cover::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 4mm;
+    background: var(--ink);
+}
+
+.institution {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 17px;
+}
+
+.institution img {
+    width: 76px;
+    height: 76px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.institution h2 {
+    font-size: 14pt;
+    letter-spacing: .3px;
+    margin: 0 0 5px;
+}
+
+.institution p {
+    margin: 0;
+    font-size: 9.5pt;
+    color: var(--ink);
+}
+
+.institution .kg {
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: 8pt;
+}
+
+.cover-photo {
+    position: absolute;
+    right: 0;
+    top: 35mm;
+    width: 48%;
+    height: 125mm;
+    background:
+        linear-gradient(90deg, #fbfaf5 0%, #fbfaf500 50%),
+        url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1400&q=85') center/cover;
+}
+
+.cover-main {
+    position: relative;
+    z-index: 2;
+    margin-top: 13mm;
+    width: 76%;
+}
+
+.label {
+    display: inline-block;
+    padding: 8px 12px;
+    background: var(--ink);
+    color: white;
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.cover-main .work {
+    font-size: 17pt;
+    margin: 0 0 12px;
+}
+
+.topic-number {
+    display: inline-block;
+    color: #966c37;
+    font-size: 10pt;
+    font-weight: 800;
+    letter-spacing: 2px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 5px;
+}
+
+.cover-main h1 {
+    max-width: 195mm;
+    font-size: 22pt;
+    line-height: 1.22;
+    letter-spacing: -.5px;
+    margin: 10px 0 13px;
+}
+
+.student {
+    width: 115mm;
+    padding: 10px 15px;
+    background: #fffefae8;
+    border: 1px solid #e5dfd2;
+}
+
+.student p {
+    margin: 4px 0;
+    color: var(--ink);
+    font-size: 9pt;
+}
+
+.cover-footer {
+    position: absolute;
+    bottom: 9mm;
+    left: 17mm;
+    right: 17mm;
+    padding-top: 9px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    font-size: 9pt;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+/* 02 — СОДЕРЖАНИЕ */
+
+.contents {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 17px;
+}
+
+.contents article {
+    min-height: 23mm;
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    padding: 11px 13px;
+    border: 1px solid var(--line);
+    background: white;
+}
+
+.contents article > b {
+    color: var(--accent);
+    font-size: 20pt;
+    line-height: 1;
+}
+
+.contents h3 {
+    margin: 0 0 4px;
+}
+
+.contents p {
+    margin: 0;
+    font-size: 8.5pt;
+}
+
+/* ДВЕ КОЛОНКИ */
+
+.two-col {
+    display: grid;
+    grid-template-columns: 1.06fr .94fr;
+    gap: 24px;
+    align-items: center;
+}
+
+.text-col {
+    min-width: 0;
+}
+
+.text-col .heading {
+    margin-bottom: 14px;
+}
+
+.text-col p {
+    font-size: 9.3pt;
+}
+
+.side-image {
+    width: 100%;
+    height: 153mm;
+    object-fit: cover;
+}
+
+.highlight {
+    margin-top: 12px;
+    padding: 11px 14px;
+    border-left: 4px solid var(--accent);
+    background: var(--soft);
+}
+
+.highlight b {
+    font-size: 10.5pt;
+}
+
+.highlight p {
+    margin: 5px 0 0;
+    font-size: 8.8pt;
+}
+
+/* ПРАВОВОЙ СТАТУС */
+
+.status-layout {
+    display: grid;
+    grid-template-columns: .8fr 1.4fr;
+    gap: 18px;
+}
+
+.dark-card {
+    padding: 21px;
+    background: var(--ink);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.plane-symbol {
+    font-size: 35pt;
+    color: #e0bc87;
+    margin-bottom: 17px;
+}
+
+.dark-card h3 {
+    font-size: 17pt;
+    color: white;
+    line-height: 1.35;
+}
+
+.dark-card p {
+    color: #e0e6e5;
+    font-size: 9pt;
+}
+
+.dark-card hr {
+    width: 48px;
+    margin: 7px 0 13px;
+    border: 0;
+    height: 3px;
+    background: var(--accent);
+}
+
+.cards-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.info {
+    border: 1px solid var(--line);
+    padding: 15px;
+    background: white;
+}
+
+.info > b {
+    display: block;
+    font-size: 21pt;
+    color: var(--accent);
+    margin-bottom: 11px;
+}
+
+.info p {
+    font-size: 9pt;
+    margin-bottom: 0;
+}
+
+/* ПРАВОВАЯ ОСНОВА */
+
+.law {
+    display: flex;
+    gap: 13px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.law > b {
+    color: var(--accent);
+    font-size: 18pt;
+    flex-shrink: 0;
+}
+
+.law h3 {
+    margin: 0 0 4px;
+}
+
+.law p {
+    margin: 0;
+    font-size: 8.7pt;
+}
+
+/* ОСНОВНЫЕ ЗАДАЧИ */
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 13px;
+}
+
+.power {
+    min-height: 43mm;
+    padding: 14px 15px;
+    border: 1px solid var(--line);
+    background: white;
+}
+
+.power > span {
+    display: grid;
+    place-items: center;
+    width: 33px;
+    height: 33px;
+    background: var(--ink);
+    color: #f2d4a7;
+    font-weight: 800;
+    font-size: 9pt;
+    margin-bottom: 9px;
+}
+
+.power h3 {
+    margin-bottom: 5px;
+}
+
+.power p {
+    margin: 0;
+    font-size: 8.7pt;
+}
+
+.note {
+    padding: 10px 13px;
+    margin-top: 13px;
+    background: var(--soft);
+    color: #526268;
+    font-size: 8.5pt;
+}
+
+/* СПИСОК ПОЛНОМОЧИЙ */
+
+.check-list {
+    padding: 0;
+    margin: 12px 0 0;
+    list-style: none;
+}
+
+.check-list li {
+    position: relative;
+    padding: 7px 0 7px 24px;
+    border-bottom: 1px solid var(--line);
+    font-size: 8.8pt;
+    line-height: 1.45;
+}
+
+.check-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #a07842;
+    font-size: 12pt;
+    font-weight: 800;
+}
+
+/* СЕРТИФИКАЦИЯ */
+
+.cert-layout {
+    display: grid;
+    grid-template-columns: .83fr 1.17fr;
+    gap: 23px;
+    align-items: stretch;
+}
+
+.cert-layout > img {
+    width: 100%;
+    height: 138mm;
+    object-fit: cover;
+}
+
+.cert-list article {
+    display: flex;
+    gap: 13px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.cert-list article > b {
+    color: var(--accent);
+    font-size: 18pt;
+}
+
+.cert-list h3 {
+    margin: 0 0 4px;
+}
+
+.cert-list p {
+    margin: 0;
+    font-size: 8.8pt;
+}
+
+/* ИНСПЕКЦИИ */
+
+.steps article {
+    display: flex;
+    gap: 12px;
+    margin: 11px 0;
+    align-items: flex-start;
+}
+
+.steps article > b {
+    width: 31px;
+    height: 31px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    background: var(--ink);
+    color: white;
+}
+
+.steps h3 {
+    margin: 0 0 3px;
+}
+
+.steps p {
+    margin: 0;
+    font-size: 8.7pt;
+}
+
+/* ПРАКТИЧЕСКОЕ ЗНАЧЕНИЕ */
+
+.wide-photo {
+    height: 52mm;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 14px;
+}
+
+.wide-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.wide-photo > div {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 18px 25px;
+    background: linear-gradient(90deg, #172b35e8, #172b3540);
+}
+
+.wide-photo h3 {
+    max-width: 175mm;
+    color: white;
+    font-size: 17pt;
+    margin-bottom: 5px;
+}
+
+.wide-photo p {
+    color: white;
+    margin: 0;
+    font-size: 9pt;
+}
+
+.impact {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.impact article {
+    padding: 12px;
+    border: 1px solid var(--line);
+    background: white;
+}
+
+.impact b {
+    color: var(--accent);
+    font-size: 18pt;
+}
+
+.impact h3 {
+    margin: 5px 0;
+}
+
+.impact p {
+    font-size: 8.5pt;
+    margin: 0;
+}
+
+/* ЗАКЛЮЧЕНИЕ */
+
+.conclusion-slide .heading {
+    margin-bottom: 14px;
+}
+
+.conclusion {
+    padding: 19px 22px;
+    background: var(--soft);
+    border-left: 4px solid var(--accent);
+}
+
+.conclusion p {
+    font-size: 10pt;
+    line-height: 1.75;
+    margin-bottom: 13px;
+}
+
+.conclusion p:last-child {
+    margin-bottom: 0;
+}
+
+.conclusion-bottom {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 18px;
+    padding: 18px;
+    background: var(--ink);
+    color: white;
+}
+
+.conclusion-mark {
+    font-size: 32pt;
+    color: #e0bc87;
+}
+
+.conclusion-bottom h3 {
+    font-size: 12pt;
+    margin-bottom: 5px;
+}
+
+.conclusion-bottom p {
+    font-size: 9pt;
+    color: #e0e6e5;
+    margin: 0;
+}
+
+/* СПИСОК ЛИТЕРАТУРЫ */
+
+.literature-slide .heading {
+    margin-bottom: 15px;
+}
+
+.literature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.literature-list article {
+    display: flex;
+    gap: 15px;
+    padding: 11px 15px;
+    border: 1px solid var(--line);
+    background: white;
+}
+
+.literature-list article > span {
+    flex-shrink: 0;
+    font-size: 20pt;
+    font-weight: 800;
+    color: var(--accent);
+}
+
+.literature-list h3 {
+    margin: 0 0 4px;
+    font-size: 10pt;
+}
+
+.literature-list p {
+    margin: 0 0 4px;
+    font-size: 8.5pt;
+    line-height: 1.4;
+}
+
+.literature-list a {
+    font-size: 8.5pt;
+    color: #916a37;
+    overflow-wrap: anywhere;
+}
+
+.literature-note {
+    margin-top: 12px;
+    font-size: 8pt;
+    color: var(--muted);
+}
+
+.thanks {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 11px;
+    margin-top: 12px;
+    border-top: 2px solid var(--ink);
+    font-size: 8.5pt;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+/* АДАПТАЦИЯ ДЛЯ ЭКРАНА */
+
+@media screen and (max-width: 900px) {
+    .presentation {
+        padding: 8px;
+    }
+
+    .slide {
+        width: 100%;
+        height: auto;
+        min-height: 650px;
+        padding: 24px;
+        margin-bottom: 14px;
+    }
+
+    .cover {
+        min-height: 760px;
+    }
+
+    .cover-main {
+        width: 100%;
+    }
+
+    .cover-main h1 {
+        font-size: 22pt;
+    }
+
+    .cover-photo {
+        top: 220px;
+        height: 300px;
+        width: 75%;
+        opacity: .25;
+    }
+
+    .student {
+        width: 100%;
+    }
+
+    .contents,
+    .cards-2,
+    .grid-3,
+    .impact {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .two-col,
+    .status-layout,
+    .cert-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .side-image,
+    .cert-layout > img {
+        height: 280px;
+    }
+
+    .dark-card {
+        min-height: 280px;
+    }
+
+    .number {
+        position: static;
+        text-align: right;
+        margin-top: 20px;
+    }
+}
+
+/* ПЕЧАТЬ НА ГОРИЗОНТАЛЬНОМ A4 */
+
+@page {
+    size: A4 landscape;
+    margin: 0;
+}
+
+@media print {
+    html,
+    body {
+        width: 297mm;
+        margin: 0;
+        padding: 0;
+        background: white;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .presentation {
+        padding: 0;
+        margin: 0;
+    }
+
+    .slide {
+        width: 297mm;
+        height: 210mm;
+        min-height: 0;
+        margin: 0;
+        padding: 14mm 17mm 13mm;
+        box-shadow: none;
+        overflow: hidden;
+        page-break-after: always;
+        break-after: page;
+    }
+
+    .cover {
+        padding-top: 12mm;
+    }
+
+    .number {
+        position: absolute;
+        right: 17mm;
+        bottom: 6mm;
+        margin: 0;
+    }
+
+    .slide:last-child {
+        page-break-after: auto;
+        break-after: auto;
+    }
+
+    a {
+        color: #916a37;
+    }
+}
